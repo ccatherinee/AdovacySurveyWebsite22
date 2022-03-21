@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load plotly_dash %}
+<html>
+  <head>
+    <title>Post-Graduation</title>
+    <link rel="stylesheet" type="text/css" href="/visuals/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="visuals/static/collapse.js"></script>   
+  </head>
+  <body>
+    <div style="width:60vw; float:left;">
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>Graduate School</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q17_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q17_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>Senior Thesis</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q18_viz' class='explore'>Explore the Data</a>
+	  </div>
+	  {%plotly_app name='q18_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>Finding a Job</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q28_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q28_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+    </div>
+
+    <div style="width:20%; float:right; position: relative;">
+      <div class="topics" style="text-align:center;">
+	<div class="navbar"><a href="/" class="nav"> Introduction</a></div>
+	<div class="navbar"><a href="/Methodology" class="nav"> Methodology</a></div>
+	<div class="navbar"><a href="/Background" class="nav"> Background</a></div>
+	<div class="navbar"><a href="/Academics" class="nav"> Academics</a></div>
+	<div class="navbar" style="background:rgba(200,200,200,0.8);">Post Graduation</div>
+	<div class="navbar"><a href="/Discrimination" class="nav"> Discrimination</a></div>
+	<div class="navbar"><a href="/Belonging" class="nav"> Belonging</a></div>
+	<div class="navbar" style="border-radius:0px 0px 15px 15px;"><a href="/Conclusion" class="nav"> Conclusion</a></div>
+      </div>
+
+      <div class="description">
+	<p style="padding:10px;">
+		Harvard College serves a crucial role in shaping the future career and endeavors of its students. This section focuses on the postgraduate interests and opportunities for current undergraduate students.
+	</p>
+      </div>
+      
+    </div>
+  </body>
+</html>

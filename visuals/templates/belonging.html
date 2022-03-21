@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load plotly_dash %}
+<html>
+  <head>
+    <title>Belonging</title>
+    <link rel="stylesheet" type="text/css" href="/visuals/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="visuals/static/collapse.js"></script>   
+  </head>
+  <body>
+    <div style="width:60vw; float:left;">
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>My peers are...</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q21_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q21_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>I am represented...</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q11_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q11_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>I can work with peers...</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q13_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q13_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+      
+      <div class = "box collapsed">
+	<div class="visual">
+	  <h2 style='display:inline-block;'>I have participated in extracurriculars</h2>
+	  <div style='float:right; display:inline-block;margin-top:15px;'>
+		<a href='/visualizations/app/q26_viz' class='explore'>Explore the Data</a>
+	</div>
+	  {%plotly_app name='q26_static' ratio=1 %} 
+	</div>
+	
+	<div class="expandbar" style="text-align:center;">
+	  <span style="font-size:30px;">&#x2304</span>
+	</div>
+	<fade/>
+      </div>
+    </div>
+
+    <div style="width:20%; float:right; position: relative;">
+      <div class="topics" style="text-align:center;">
+	<div class="navbar"><a href="/" class="nav"> Introduction</a></div>
+	<div class="navbar"><a href="/Methodology" class="nav"> Methodology</a></div>
+	<div class="navbar"><a href="/Background" class="nav"> Background</a></div>
+	<div class="navbar"><a href="/Academics" class="nav"> Academics</a></div>
+	<div class="navbar"><a href="/PostGrad" class="nav"> Post Graduation</a></div>
+	<div class="navbar"><a href="/Discrimination" class="nav"> Discrimination</a></div>
+	<div class="navbar" style="background:rgba(200,200,200,0.8);">Belonging</div>
+	<div class="navbar" style="border-radius:0px 0px 15px 15px;"><a href="/Conclusion" class="nav"> Conclusion</a></div>
+      </div>
+
+      <div class="description">
+	<p style="padding:10px;">
+		This final section focuses on belonging, delving into whether students feel represented within their concentration department and how students can best be supported by their teaching staff and peers.
+	</p>
+      </div>
+      
+    </div>
+  </body>
+</html>
