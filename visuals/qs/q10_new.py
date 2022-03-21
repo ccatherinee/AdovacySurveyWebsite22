@@ -149,7 +149,7 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label',
                style={'font-style': 'italic'})
-    ], style={'width': '30%', 'display': 'inline-table', 'margin-top': 20, 'margin-left': 50}),
+    ], style={'width': '30%', 'display': 'none', 'margin-top': 20, 'margin-left': 50}),
 
 
     html.Div(

@@ -136,17 +136,18 @@ html.Div([
         size="lg",
     ),
     html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
-], style={'width': '30%', 'display': 'inline-table', 'margin-top' : 20, 'margin-left' : 50}),
+], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
         html.Div([
+            html.H4('Questions'),
             dcc.Dropdown(
                 id='question_option',
                 options=[{'label': i, 'value': i} for i in QUESTION_OPTIONS],
                 value='Close friends and family')
-    ],style={'width': '30%', 'display': 'inline-table', 'margin-left' : 50}),
+    ],style={'width': '30%', 'display': 'inline-table', 'margin-top' : 20, 'margin-left' : 50}),
 
 html.Div([
     html.P('When looking for internships and job opportunities, direct connections or referrals are accessible to me through…')
-],style={'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
+],style={'display': 'inline-table', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization')
 ])
 

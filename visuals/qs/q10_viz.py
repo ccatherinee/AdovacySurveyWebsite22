@@ -157,12 +157,12 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label',
                style={'font-style': 'italic'})
-    ], style={'width': '30%', 'display': 'inline-table', 'margin-top': 20, 'margin-left': 50}),
+    ], style={'width': '30%', 'display': 'none', 'margin-top': 20, 'margin-left': 50}),
     
         
     html.Div([
         html.H5('I would feel comfortable approaching at least one faculty member from within my primary concentration department...')
-    ], style={'width': '100%', 'display': 'none', 'margin-top': 15, 'margin-left': 50}),
+    ], style={'width': '100%', 'display': 'inline-table', 'margin-top': 15, 'margin-left': 50}),
 
 
 
