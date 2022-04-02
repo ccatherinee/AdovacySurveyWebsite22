@@ -129,8 +129,8 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("While none of the URM respondents express the intention to write a senior thesis within the CS department with certainty, a good amount of Non-URM students (30.91%) do intend to do so."),  
-    html.P("The comparison between FGLI and non-FGLI students shows a similar pattern as the comparison between URM and non-URM students on the intention to write a senior thesis within the CS department (0% of FGLI student express intention to write a senior thesis within the CS department with certainty while 33.33% of non-FGLI students intend to do so).")
+    html.P("While none of the URM respondents express the intention to write a senior thesis within the CS department with certainty, a good amount of Non-URM students (30.91%) do intend to do so.", style = {'font-size': '14pt'}),  
+    html.P("The comparison between FGLI and non-FGLI students shows a similar pattern as the comparison between URM and non-URM students on the intention to write a senior thesis within the CS department (0% of FGLI student express intention to write a senior thesis within the CS department with certainty while 33.33% of non-FGLI students intend to do so).", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

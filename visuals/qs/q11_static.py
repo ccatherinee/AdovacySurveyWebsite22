@@ -151,9 +151,9 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("A larger percentage (38.27%) of non-male respondents disagree with the statement that “the aspects of my identity that are important to me … are adequately represented among the teaching staff for courses in my primary concentration department” than male respondents (9.52%)."),
-    html.P("There is a significant difference between non-male respondents (67.91% disagree) and male respondents (14.28% disagree) on the statement “the aspects of my identity that are important to me … are adequately represented among the professors in my primary concentration department”."),
-    html.P("50% of URM respondents express certain levels of disagreement with the statement that “the aspects of my identity that are important to me … are adequately represented among the students in my primary concentration department” while only around 21.42% Non-URM respondents express disagreement with the statement."), 
+    html.P("A larger percentage (38.27%) of non-male respondents disagree with the statement that “the aspects of my identity that are important to me … are adequately represented among the teaching staff for courses in my primary concentration department” than male respondents (9.52%).", style = {'font-size': '14pt'}),
+    html.P("There is a significant difference between non-male respondents (67.91% disagree) and male respondents (14.28% disagree) on the statement “the aspects of my identity that are important to me … are adequately represented among the professors in my primary concentration department”.", style = {'font-size': '14pt'}),
+    html.P("50% of URM respondents express certain levels of disagreement with the statement that “the aspects of my identity that are important to me … are adequately represented among the students in my primary concentration department” while only around 21.42% Non-URM respondents express disagreement with the statement.", style = {'font-size': '14pt'}), 
     html.P("")
 ])
 

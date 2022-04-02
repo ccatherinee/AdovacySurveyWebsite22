@@ -150,9 +150,9 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, around 90% of suveyed male students strongly disagreed, disagreed, or somewhat disagreed while only 50% of surveyed non-male students strongly disagreed, disagreed, or somewhat disagreed. Around 10% of surveyed male students strongly agreed, agreed, or somewhat agreed while around 36% of surveyed non-male students strongly agreed, agreed, or somewhat agreed."), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of social class, around 25% of surveyed FGLI students strongly agreed or agreed while only around 7% of non-FGLI students strongly agreed or agreed."), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, 51% of first years strongly disagreed, 43.33% of sophomores strongly disagreed, 34.48% of juniors strongly disagreed, 25.0% of seniors strongly disagreed.")
+    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, around 90% of suveyed male students strongly disagreed, disagreed, or somewhat disagreed while only 50% of surveyed non-male students strongly disagreed, disagreed, or somewhat disagreed. Around 10% of surveyed male students strongly agreed, agreed, or somewhat agreed while around 36% of surveyed non-male students strongly agreed, agreed, or somewhat agreed.", style = {'font-size': '14pt'}), 
+    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of social class, around 25% of surveyed FGLI students strongly agreed or agreed while only around 7% of non-FGLI students strongly agreed or agreed.", style = {'font-size': '14pt'}), 
+    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, 51% of first years strongly disagreed, 43.33% of sophomores strongly disagreed, 34.48% of juniors strongly disagreed, 25.0% of seniors strongly disagreed.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

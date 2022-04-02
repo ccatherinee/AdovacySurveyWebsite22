@@ -150,9 +150,9 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of gender, 85.71% of surveyed male students either strongly disagree and 14.29% disagree while only 29.13% of surveyed non-male students strongly disagree and 18.52% disagree."), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of sexuality, 63% of BGLTQ+ students strongly disagree while around 86% of non-BGLTQ+ students strongly disagree. Around 6% of surveyed BGLTQ+ students strongly agree or agree while no Non-BGLTQ+ student strongly agree or agree."), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of social class, 83.33% of Non-FGLI students strongly disagreed while 33.33% of FGLI students disagreed. Around 17% of FGLI students strongly agreed or agreed while no Non-FGLI students strongly agreed or agreed.")
+    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of gender, 85.71% of surveyed male students either strongly disagree and 14.29% disagree while only 29.13% of surveyed non-male students strongly disagree and 18.52% disagree.", style = {'font-size': '14pt'}), 
+    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of sexuality, 63% of BGLTQ+ students strongly disagree while around 86% of non-BGLTQ+ students strongly disagree. Around 6% of surveyed BGLTQ+ students strongly agree or agree while no Non-BGLTQ+ student strongly agree or agree.", style = {'font-size': '14pt'}), 
+    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of social class, 83.33% of Non-FGLI students strongly disagreed while 33.33% of FGLI students disagreed. Around 17% of FGLI students strongly agreed or agreed while no Non-FGLI students strongly agreed or agreed.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

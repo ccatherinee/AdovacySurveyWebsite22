@@ -143,13 +143,13 @@ app.layout = html.Div([
                 value=QUESTION_OPTIONS[1])
     ],style={'width': '75%', 'display': 'none', 'margin-left' : 50}),
 
-    html.Div([
-        html.P("I did not feel as if I had the resources to successfully apply to graduate school")
-    ],style={'height':50, 'margin-left':50}),
+    #html.Div([
+    #    html.P("I did not feel as if I had the resources to successfully apply to graduate school")
+    #],style={'height':50, 'margin-left':50}),
     
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("25% of surveyed FGLI students felt as if they did not have the resources to successfully apply to graduate school, while only 10.9% of surveyed non-FGLI students felt the same. However, only 16.7% of FGLI students felt that graduate school didn’t fit their career paths, while 20.7% of non-FGLI shared that same sentiment."), 
-    html.P("When considering graduate school, SEAS students (14.3%) were more likely to feel as if they did not have sufficient resources to apply compared to non-SEAS students (0%). Similarly, a larger percent of non-BGLTQ+ students (27.3%) students felt that graduate school didn’t fit into their career paths, while only 8.57% of BGLTQ+ students felt the same.")
+    html.P("25% of surveyed FGLI students felt as if they did not have the resources to successfully apply to graduate school, while only 10.9% of surveyed non-FGLI students felt the same. However, only 16.7% of FGLI students felt that graduate school didn’t fit their career paths, while 20.7% of non-FGLI shared that same sentiment.", style = {'font-size': '14pt'}), 
+    html.P("When considering graduate school, SEAS students (14.3%) were more likely to feel as if they did not have sufficient resources to apply compared to non-SEAS students (0%). Similarly, a larger percent of non-BGLTQ+ students (27.3%) students felt that graduate school didn’t fit into their career paths, while only 8.57% of BGLTQ+ students felt the same.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -295,7 +295,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         ), row=1, col=colNum)
     
         colNum +=1
-        
+    fig.update_layout(
+        title='I did not feel as if I had the resources to successfully apply to graduate school.'
+    )
  
 
     # return empty plot if there is not enough data (or if figure is not yet implemented)
@@ -306,3 +308,6 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
        
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+
+

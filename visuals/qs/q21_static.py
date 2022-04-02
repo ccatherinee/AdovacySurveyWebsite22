@@ -145,9 +145,9 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Around 58% of FGLI students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 25% of Non-FGLI students strongly disagreed, disagreed, or somewhat disagreed."), 
-    html.P("Around 86% of male students strongly agreed, agreed, or somewhat agreed that the student community within their primary concentration is academically supportive compared to 68% of female students."), 
-    html.P("Around 45% of BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 23% of Non-BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed.")
+    html.P("Around 58% of FGLI students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 25% of Non-FGLI students strongly disagreed, disagreed, or somewhat disagreed.", style = {'font-size': '14pt'}), 
+    html.P("Around 86% of male students strongly agreed, agreed, or somewhat agreed that the student community within their primary concentration is academically supportive compared to 68% of female students.", style = {'font-size': '14pt'}), 
+    html.P("Around 45% of BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 23% of Non-BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

@@ -149,7 +149,7 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("66.66% of surveyed FGLI students label themselves as “less knowledgeable than their peers” regarding programming languages (1 - 3 on the scale), with 33.3% 1’s and 33.3% 2’s. 47.07% of surveyed non-FGLI students label themselves that way, with 15.69% 1’s, 2’s, and 3’s. In theoretical computer science, 100% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to non-FGLI students.")
+    html.P("66.66% of surveyed FGLI students label themselves as “less knowledgeable than their peers” regarding programming languages (1 - 3 on the scale), with 33.3% 1’s and 33.3% 2’s. 47.07% of surveyed non-FGLI students label themselves that way, with 15.69% 1’s, 2’s, and 3’s. In theoretical computer science, 100% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to non-FGLI students.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

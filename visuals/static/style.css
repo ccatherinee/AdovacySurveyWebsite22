@@ -1,3 +1,7 @@
+html * {
+font-family: Arial;
+font-size: 14pt;
+}
 body {
 background:#DAE0E6;
 overflow-y:scroll;
@@ -41,7 +45,8 @@ background-color: white;
 width: 15%;
 height: 320px;
 border: 1px rgb(137, 137, 137);
-border-top: 40px #a291b5;
+/* border-top: 40px #a291b5; */
+border-top: 40px rgb(227, 96, 85);
 border-style: solid;
 margin-left: -3%;
 margin-top: 6%;
@@ -55,7 +60,8 @@ background-color: white;
 width: 15%;
 height: 250px;
 border: 1px rgb(137, 137, 137);
-border-top: 40px #a291b5;
+/* border-top: 40px #a291b5;*/
+border-top: 40px rgb(227, 96, 85);
 border-style: solid;
 margin-left: -3%;
 margin-top: 6%;
@@ -69,7 +75,8 @@ background-color: white;
 width: 15%;
 height: 350px;
 border: 1px rgb(137, 137, 137);
-border-top: 40px #a291b5;
+/* border-top: 40px #a291b5; */ 
+border-top: 40px rgb(227, 96, 85);
 border-style: solid;
 margin-left: -3%;
 margin-top: 6%;
@@ -87,9 +94,12 @@ padding-bottom: 0px;
 a.explore{
 text-decoration:none; 
 font-size:18px; 
-background-color:#a291b5; 
+/* background-color:#a291b5; */
+background-color: rgb(227, 96, 85);
+color: white;
 padding:10px; 
 border-radius:10px;
+font-family: Arial
 }
 
 fade {
@@ -135,4 +145,6 @@ display:block;
 height:100%;
 width:100%;
 text-decoration:none;
+color: black;
+font-family: Arial
 }

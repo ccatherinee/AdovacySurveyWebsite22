@@ -130,7 +130,8 @@ app.layout = html.Div([
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',
               config={'displayModeBar': False}), 
-    html.P("In regards to programming background, 7.87% of SEAS respondents claim to have never been taught programming in an academic or extracurricular setting, while 15.56% of non-SEAS respondents agree with that statement. On the other hand, 62.86% of BGLTQ+ respondents have learned programming before college, while 80% of non-BGLTQ+ students have done the same.")
+    html.P("34.78% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 0% of reported male students fall under that category. On the contrary, 83.33% of surveyed male students have been taught programming in middle school or earlier, while only 65.22% of non-male students fall under that category.", style = {'font-size': '14pt'}), 
+    html.P("In regards to programming background, 7.87% of SEAS respondents claim to have never been taught programming in an academic or extracurricular setting, while 15.56% of non-SEAS respondents agree with that statement. On the other hand, 62.86% of BGLTQ+ respondents have learned programming before college, while 80% of non-BGLTQ+ students have done the same.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

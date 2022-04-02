@@ -154,9 +154,9 @@ app.layout = html.Div([
     ], style={'width': '30%', 'display': 'none', 'margin-top': 20, 'margin-left': 50}),  
     html.Div([
         html.P("Which of the following on-campus resources have helped you decide your concentration(s)?")
-    ], style={'height':50}),
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("Generally, upperclassmen have found more use/value from their advisors, proctors, department heads, faculty members, and advising programs. 72.2% of freshmen get their primary concentration-related help from their first-year academic advisors, the most out of all four years.")
+    html.P("Generally, upperclassmen have found more use/value from their advisors, proctors, department heads, faculty members, and advising programs. 72.2% of freshmen get their primary concentration-related help from their first-year academic advisors, the most out of all four years.", style = {'font-size': '14pt'})
 ])
 
 
@@ -330,7 +330,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             colNum += 1
         rowNum+=1
         #print(total)
-    
+    # figSub.update_layout(
+        # title='Which of the following on-campus resources have helped you decide your concentration(s)?'
+    # )
     # check for errors
     if figSub == None or is_sample_size_insufficient(dff, axis):
         print("ERROR")

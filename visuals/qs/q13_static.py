@@ -129,7 +129,7 @@ app.layout = html.Div([
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Non-URM students were significantly more likely to answer with some degree of “agree” (i.e. in the blue) (67.8%) compared to URM students (20%). Additionally, a lot more FGLI students indicated some level of disagreement (66%) compared to non-FGLI students (25%). Finally, there was a general skew towards disagreement for BGLTQ+ students compared to their non-BGLTQ+ counterparts. Last year’s report stated race as the most significant finding, followed by FGLI and BGLTQ+; we see similar results for this year.")
+    html.P("Non-URM students were significantly more likely to answer with some degree of “agree” (i.e. in the blue) (67.8%) compared to URM students (20%). Additionally, a lot more FGLI students indicated some level of disagreement (66%) compared to non-FGLI students (25%). Finally, there was a general skew towards disagreement for BGLTQ+ students compared to their non-BGLTQ+ counterparts. Last year’s report stated race as the most significant finding, followed by FGLI and BGLTQ+; we see similar results for this year.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):

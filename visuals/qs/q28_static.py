@@ -147,11 +147,11 @@ html.Div([
                 value='Close friends and family')
         ],style={'width': '30%', 'display': 'none', 'margin-left' : 50}),
 
-    html.Div([
-        html.P("When looking for internships and job opportunities, direct connections or referrals are accessible to me through close friends and family.")
-        ],style={'height':50, 'margin-left':50}),
+    #html.Div([
+    #    html.P("When looking for internships and job opportunities, direct connections or referrals are accessible to me through close friends and family.")
+    #    ],style={'height':50, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Although we did not find any statistically significant findings for this question, we attribute this difference to our small sample size since many of our results lined up closely with those of last year’s survey. Our most striking result was that there was consistently a noticeable difference between the percentage of FGLI versus non-FGLI students who had access to direct connections or referrals across the “close friends and family,” “fellow students,” and “professional networks” categories. It is worth noting however that Harvard OCS is having consistently even results among students from different identities. Additionally, when we compared our result to last year’s results, we noticed that the gender gap seems to have slightly lessened for this question, but there still remains a significant gap when it comes to FGLI vs non-FGLI students.")
+    html.P("Although we did not find any statistically significant findings for this question, we attribute this difference to our small sample size since many of our results lined up closely with those of last year’s survey. Our most striking result was that there was consistently a noticeable difference between the percentage of FGLI versus non-FGLI students who had access to direct connections or referrals across the “close friends and family,” “fellow students,” and “professional networks” categories. It is worth noting however that Harvard OCS is having consistently even results among students from different identities. Additionally, when we compared our result to last year’s results, we noticed that the gender gap seems to have slightly lessened for this question, but there still remains a significant gap when it comes to FGLI vs non-FGLI students.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -297,7 +297,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             showlegend=False
         ), row=1, col=colNum)
         colNum +=1
-
+    fig.update_layout(
+        title='When looking for internships and job opportunities, direct connections or referrals are accessible to me <br> through close friends and family.'
+    )
 
     # check for errors
     if fig == None or is_sample_size_insufficient(dff, axis):
