@@ -128,6 +128,9 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
+    html.Div([
+        html.P("Do you intend to write a senior thesis within the CS department??")
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
     html.P("While none of the URM respondents express the intention to write a senior thesis within the CS department with certainty, a good amount of Non-URM students (30.91%) do intend to do so.", style = {'font-size': '14pt'}),  
     html.P("The comparison between FGLI and non-FGLI students shows a similar pattern as the comparison between URM and non-URM students on the intention to write a senior thesis within the CS department (0% of FGLI student express intention to write a senior thesis within the CS department with certainty while 33.33% of non-FGLI students intend to do so).", style = {'font-size': '14pt'})
@@ -289,18 +292,20 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             showline=False,
             showticklabels=True,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[0.15, 1],
+            fixedrange=True
         ),
         yaxis=dict(
             showgrid=False,
             showline=False,
             showticklabels=False,
             zeroline=False,
+            fixedrange=True
         ),
         barmode='stack',
-        paper_bgcolor='rgb(248, 248, 255)',
+        # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=140, b=80),
+        margin=dict(l=0, r=0, t=0, b=40),
         showlegend=False
     )
 
@@ -317,7 +322,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
                                 showarrow=False, align='right'))
 
     split_text = textwrap.wrap(D.QUESTION_KEY[QUESTION_ID][0], width=100)
-    fig.update_layout(annotations=annotations, title_text='<br>'.join(split_text))
+    fig.update_layout(annotations=annotations)
 
     return fig
 

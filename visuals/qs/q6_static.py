@@ -128,8 +128,12 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
+    html.Div([
+        html.P("If you have been taught programming or computer science through an academic or extracurricular program, when did you enroll in your first course?")
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization',
-              config={'displayModeBar': False}), 
+              config={'displayModeBar': False}),
+              #style={'margin-top':'-40'}), 
     html.P("34.78% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 0% of reported male students fall under that category. On the contrary, 83.33% of surveyed male students have been taught programming in middle school or earlier, while only 65.22% of non-male students fall under that category.", style = {'font-size': '14pt'}), 
     html.P("In regards to programming background, 7.87% of SEAS respondents claim to have never been taught programming in an academic or extracurricular setting, while 15.56% of non-SEAS respondents agree with that statement. On the other hand, 62.86% of BGLTQ+ respondents have learned programming before college, while 80% of non-BGLTQ+ students have done the same.", style = {'font-size': '14pt'})
 ])
@@ -291,18 +295,20 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             showline=False,
             showticklabels=True,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[0.15, 1], 
+            fixedrange=True,
         ),
         yaxis=dict(
             showgrid=False,
             showline=False,
             showticklabels=False,
             zeroline=False,
+            fixedrange=True,
         ),
         barmode='stack',
         #paper_bgcolor='rgb(248, 248, 255)',
         #plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=140, b=80),
+        margin=dict(l=0, r=0, t=20, b=80),
         showlegend=False
     )
 
@@ -319,7 +325,8 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
                                 showarrow=False, align='right'))
 
     split_text = textwrap.wrap(D.QUESTION_KEY[QUESTION_ID][0], width=100)
-    fig.update_layout(annotations=annotations, title_text='<br>'.join(split_text)[:-17])
+    fig.update_layout(annotations=annotations) #, title_text='<br>'.join(split_text)[:-17]
+    
 
     return fig
 

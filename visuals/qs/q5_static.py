@@ -154,7 +154,7 @@ app.layout = html.Div([
     ], style={'width': '30%', 'display': 'none', 'margin-top': 20, 'margin-left': 50}),  
     html.Div([
         html.P("Which of the following on-campus resources have helped you decide your concentration(s)?")
-    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
     html.P("Generally, upperclassmen have found more use/value from their advisors, proctors, department heads, faculty members, and advising programs. 72.2% of freshmen get their primary concentration-related help from their first-year academic advisors, the most out of all four years.", style = {'font-size': '14pt'})
 ])
@@ -299,7 +299,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         # add row title
         figSub.add_trace(go.Table(
             header=dict(values=[label], fill_color='rgba(0,0,0,0)', font=dict(
-                color='RebeccaPurple', size=16), align='center'),
+                color='RebeccaPurple', size=12), align='center'),
             cells=dict(values=[' '],
                        fill_color='rgba(0,0,0,0)',
                        align='center')
@@ -330,6 +330,11 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             colNum += 1
         rowNum+=1
         #print(total)
+    figSub.update_annotations(font_size=10)
+
+    figSub.update_layout(
+        margin=dict(l=0, r=0, t=40, b=40),
+    )
     # figSub.update_layout(
         # title='Which of the following on-campus resources have helped you decide your concentration(s)?'
     # )

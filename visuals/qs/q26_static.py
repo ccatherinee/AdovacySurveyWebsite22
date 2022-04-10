@@ -143,11 +143,11 @@ app.layout = html.Div([
     ], style={'width': '30%', 'display': 'none', 'margin-top': 20, 'margin-left': 50}),
      html.Div([
                html.P('Have you ever been involved in a student organization at Harvard relating to computer science, engineering, or technology?')
-   ],style={'width': '90%', 'display': 'none', 'margin-left' : 50}),
+   ],style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':60, 'margin-left':50}),
 
-    # html.Div([
-        # html.P("Have you ever been involved in a student organization at Harvard relating to computer science, engineering, or technology?")
-    # ],style={'height':50, 'margin-left':50}),
+    #html.Div([
+        #html.P("Have you ever been involved in a student organization at Harvard relating to computer science, engineering, or technology?")
+    #],style={'height':50, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
     html.P("Our survey found that URM students were significantly underrepresented in STEM clubs (37.5%) compared to non-URM students. (~75%). Similarly, there are significant differences in student club representation with respect to both FGLI and BGLTQ+ students. Specifically, FGLI students were much less likely to be in STEM clubs (42%) compared to their non-FGLI counterparts (79%). BGLTQ+ students were also less likely to be involved in clubs (60%) compared to non-BGLTQ+ students (85%).", style = {'font-size': '14pt'})
    
@@ -305,7 +305,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         colNum +=1
 
     fig.update_layout(
-        title='Have you ever been involved in a student organization at Harvard relating to computer science, engineering, or technology?'
+        margin=dict(l=0, r=0, t=40, b=40),
     )
 
     # check for errors

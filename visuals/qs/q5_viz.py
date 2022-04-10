@@ -16,6 +16,7 @@ from django_plotly_dash import DjangoDash
 
 # constants
 # column titles with formatting
+
 COLUMN_TITLES = ['', 'My first-year <br> academic advisor <br> <br>', 'Residential advising <br> resources, such as <br> house tutors <br> or proctors <br> <br>',
                  'Department <br> heads <br> <br>', 'Department <br> faculty <br> <br>', 'Department-specific <br> advising programs <br> <br>', 
                  'Peer <br> Advising <br> Fellows (PAFs) <br> <br>']
@@ -28,10 +29,11 @@ ANSWER_OPTIONS = ['My first-year academic advisor', 'Residential advising resour
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app = DjangoDash('q5_viz', external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = DjangoDash('q5_viz', external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
 
 
 app.layout = html.Div([
+
 
     html.Div([
         html.H1('Explore'),

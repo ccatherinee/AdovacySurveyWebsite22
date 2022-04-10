@@ -149,6 +149,9 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
+    html.Div([
+        html.P("Please indicate the extent to which you disagree or agree with each of the following statements: I have experienced discrimination within my primary concentration on the basis of ... ( 1 - strongly disagree, 4 - neither agree nor disagree, 7 - strongly agree) - My gender")
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
     html.P("When asked if they have experienced discrimination within their primary concentration on the basis of gender, 85.71% of surveyed male students either strongly disagree and 14.29% disagree while only 29.13% of surveyed non-male students strongly disagree and 18.52% disagree.", style = {'font-size': '14pt'}), 
     html.P("When asked if they have experienced discrimination within their primary concentration on the basis of sexuality, 63% of BGLTQ+ students strongly disagree while around 86% of non-BGLTQ+ students strongly disagree. Around 6% of surveyed BGLTQ+ students strongly agree or agree while no Non-BGLTQ+ student strongly agree or agree.", style = {'font-size': '14pt'}), 
@@ -316,18 +319,20 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
             showline=False,
             showticklabels=True,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[0.15, 1], 
+            fixedrange=True,
         ),
         yaxis=dict(
             showgrid=False,
             showline=False,
             showticklabels=False,
             zeroline=False,
+            fixedrange = True, 
         ),
         barmode='stack',
-        paper_bgcolor='rgb(248, 248, 255)',
+        # _bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=140, b=80),
+        margin=dict(l=0, r=0, t=0, b=40),
         showlegend=False
     )
 
@@ -344,7 +349,7 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
                                 showarrow=False, align='right'))
 
     split_text = textwrap.wrap(D.QUESTION_KEY[QUESTION_ID][0], width=100)
-    fig.update_layout(annotations=annotations, title_text='<br>'.join(split_text))
+    fig.update_layout(annotations=annotations)
 
     return fig
 

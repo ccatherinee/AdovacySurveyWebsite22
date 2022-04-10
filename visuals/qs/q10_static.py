@@ -17,7 +17,7 @@ from django_plotly_dash import DjangoDash
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app = DjangoDash('q10_static',external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = DjangoDash('q10_static',external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
 # constants
 # column titles with formatting
 COLUMN_TITLES = ['', 'For an <br> academic letter of <br> recommendation <br> <br>', 'To inquire <br> about research <br> opportunities <br> <br>',
@@ -304,7 +304,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         colNum = 1
         # add row title
         fig.add_trace(go.Table(
-            header=dict(values=[label], fill_color='rgba(0,0,0,0)', font=dict(size=16), align='center'),
+            header=dict(values=[label], fill_color='rgba(0,0,0,0)', font=dict(size=12), align='center'),
             cells=dict(values=[' '],
                        fill_color='rgba(0,0,0,0)',
                        align='center')
@@ -340,6 +340,8 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
     #fig.update_layout(
     #    title='I would feel comfortable approaching at least one faculty member from within my primary concentration department...'
     #)
+    
+    fig.update_layout(autosize=True)
     
     # check for errors
     if fig == None or is_sample_size_insufficient(dff, axis):

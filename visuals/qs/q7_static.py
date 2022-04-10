@@ -14,7 +14,7 @@ from django_plotly_dash import DjangoDash
 import pandas as pd
 from datetime import datetime
 
-app = DjangoDash('q7_static', external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = DjangoDash('q7_static', external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
 
 legend_labels = ['1', '2', '3', '4', '5', '6', '7']
 bar_colors = ['rgba(102, 0, 0, 0.8)', 'rgba(204, 0, 0, 0.8)', 'rgba(234, 153, 153, 0.8)', 'rgba(217, 217, 217, 0.8)', 'rgba(164, 194, 244, 0.8)', 'rgba(60, 120, 216, 0.8)', 'rgba(28, 69, 135, 0.8)']
@@ -148,6 +148,9 @@ app.layout = html.Div([
         ),
         html.P('Filters: None', id='filters-label', style={'font-style' : 'italic'})
     ], style={'width': '30%', 'display': 'none', 'margin-top' : 20, 'margin-left' : 50}),
+    html.Div([
+        html.P("How do you think your level of comfort in the following topics compare to other CS concentrators in your year? (1 - significantly less knowledgeable, 4 - around average, 7 - significantly more knowledgeable) - Programming languages")
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
     html.P("66.66% of surveyed FGLI students label themselves as “less knowledgeable than their peers” regarding programming languages (1 - 3 on the scale), with 33.3% 1’s and 33.3% 2’s. 47.07% of surveyed non-FGLI students label themselves that way, with 15.69% 1’s, 2’s, and 3’s. In theoretical computer science, 100% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to non-FGLI students.", style = {'font-size': '14pt'})
 ])
@@ -313,18 +316,20 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
             showline=False,
             showticklabels=True,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[0.15, 1], 
+            fixedrange=True,
         ),
         yaxis=dict(
             showgrid=False,
             showline=False,
             showticklabels=False,
             zeroline=False,
+            fixedrange=True,
         ),
         barmode='stack',
-        paper_bgcolor='rgb(248, 248, 255)',
+        # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=140, b=80),
+        margin=dict(l=0, r=0, t=0, b=40),
         showlegend=False
     )
 
@@ -341,7 +346,7 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
                                 showarrow=False, align='right'))
 
     split_text = textwrap.wrap(D.QUESTION_KEY[QUESTION_ID][0], width=100)
-    fig.update_layout(annotations=annotations, title_text='<br>'.join(split_text))
+    fig.update_layout(annotations=annotations)
 
     return fig
 

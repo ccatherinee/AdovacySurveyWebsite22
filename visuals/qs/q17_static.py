@@ -142,6 +142,9 @@ app.layout = html.Div([
                 options=[{'label': i, 'value': i} for i in QUESTION_OPTIONS],
                 value=QUESTION_OPTIONS[1])
     ],style={'width': '75%', 'display': 'none', 'margin-left' : 50}),
+    html.Div([
+        html.P("I did not feel as if I had the resources to successfully apply to graduate school.")
+    ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
 
     #html.Div([
     #    html.P("I did not feel as if I had the resources to successfully apply to graduate school")
@@ -296,7 +299,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
     
         colNum +=1
     fig.update_layout(
-        title='I did not feel as if I had the resources to successfully apply to graduate school.'
+        margin=dict(l=0, r=0, t=40, b=40),
     )
  
 

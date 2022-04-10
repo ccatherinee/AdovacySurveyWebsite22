@@ -317,13 +317,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
             showline=False,
             showticklabels=True,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[0.15, 1], 
+            fixedrange=True,
         ),
         yaxis=dict(
             showgrid=False,
             showline=False,
             showticklabels=False,
             zeroline=False,
+            fixedrange=True,
         ),
         barmode='stack',
         paper_bgcolor='rgb(248, 248, 255)',

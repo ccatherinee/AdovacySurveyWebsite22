@@ -13,7 +13,7 @@ import pandas as pd
 from datetime import datetime
 from django_plotly_dash import DjangoDash
 
-app = DjangoDash('q12_static', external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = DjangoDash('q12_static', external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
 
 # response options from survey to question 17
 Q12_OPTIONS = [
@@ -387,16 +387,17 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
     
     # formats figure
     fig = px.scatter(df, x='x_axis', y='y_axis', size='size', color='category')
+    fig.update_layout(autosize=True)
     fig.update_traces(hovertemplate=None, hoverinfo='skip')
     fig.update_xaxes(visible=False)
     fig.update_yaxes(visible=False)
-    fig.update_layout(width=725, height=650, legend_title='', margin = dict(t=130))
+    fig.update_layout(width=500, height=500, legend_title='', margin = dict(t=130))
     fig.update_layout(legend=dict(
         orientation="h",
         itemsizing = 'constant',
-        yanchor="bottom",
+        yanchor="auto",
         y=1.02,
-        xanchor="right",
+        xanchor="auto",
         x=1,
         font = dict(
             size=9
