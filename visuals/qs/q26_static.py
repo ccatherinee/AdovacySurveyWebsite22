@@ -149,7 +149,7 @@ app.layout = html.Div([
         #html.P("Have you ever been involved in a student organization at Harvard relating to computer science, engineering, or technology?")
     #],style={'height':50, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Our survey found that URM students were significantly underrepresented in STEM clubs (37.5%) compared to non-URM students. (~75%). Similarly, there are significant differences in student club representation with respect to both FGLI and BGLTQ+ students. Specifically, FGLI students were much less likely to be in STEM clubs (42%) compared to their non-FGLI counterparts (79%). BGLTQ+ students were also less likely to be involved in clubs (60%) compared to non-BGLTQ+ students (85%).", style = {'font-size': '14pt'})
+    html.P("Our survey found that URM students were significantly underrepresented in STEM clubs (37.5%) compared to non-URM students. (77.8%). Similarly, there are significant differences in student club representation with respect to both FGLI and BGLTQ+ students. Specifically, FGLI students were much less likely to be in STEM clubs (41.7%) compared to their non-FGLI counterparts (79.3%). BGLTQ+ students were also less likely to be involved in clubs (60.0%) compared to non-BGLTQ+ students (84.8%). ", style = {'font-size': '14pt'})
    
 ])
 

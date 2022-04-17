@@ -17,6 +17,7 @@ from datetime import datetime
 app = DjangoDash('q7_viz', external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 legend_labels = ['1', '2', '3', '4', '5', '6', '7']
+legend_labels_2 = ['Strongly disagree', 'Disagree', 'Somewhat disagree', 'Neither agree nor disagree', 'Somewhat agree', 'Agree', 'Strongly agree']
 bar_colors = ['rgba(102, 0, 0, 0.8)', 'rgba(204, 0, 0, 0.8)', 'rgba(234, 153, 153, 0.8)', 'rgba(217, 217, 217, 0.8)', 'rgba(164, 194, 244, 0.8)', 'rgba(60, 120, 216, 0.8)', 'rgba(28, 69, 135, 0.8)']
 #QUESTION_ID = 'Q7_1'
 
@@ -294,12 +295,15 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg = (row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels_2[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -324,7 +328,8 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
         paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
         margin=dict(l=0, r=0, t=140, b=80),
-        showlegend=False
+        showlegend=True,
+        legend = dict(orientation='h')
     )
 
     annotations = []

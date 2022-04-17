@@ -132,8 +132,7 @@ app.layout = html.Div([
         html.P("Do you intend to write a senior thesis within the CS department??")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("While none of the URM respondents express the intention to write a senior thesis within the CS department with certainty, a good amount of Non-URM students (30.91%) do intend to do so.", style = {'font-size': '14pt'}),  
-    html.P("The comparison between FGLI and non-FGLI students shows a similar pattern as the comparison between URM and non-URM students on the intention to write a senior thesis within the CS department (0% of FGLI student express intention to write a senior thesis within the CS department with certainty while 33.33% of non-FGLI students intend to do so).", style = {'font-size': '14pt'})
+    html.P("Significantly more non-FGLI students (33.3%) have expressed an intent to write a senior thesis compared to FGLI students (0.0%). Similarly, none of the URM respondents express the intention to write a senior thesis within the CS department, while 30.9% of non-URM students do.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -274,12 +273,15 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg=(row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -305,8 +307,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         barmode='stack',
         # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []

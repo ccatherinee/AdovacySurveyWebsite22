@@ -156,7 +156,7 @@ app.layout = html.Div([
         html.P("Which of the following on-campus resources have helped you decide your concentration(s)?")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("Generally, upperclassmen have found more use/value from their advisors, proctors, department heads, faculty members, and advising programs. 72.2% of freshmen get their primary concentration-related help from their first-year academic advisors, the most out of all four years.", style = {'font-size': '14pt'})
+    html.P("Our survey found that non-SEAS students (41.4%) generally found their department heads more helpful when deciding their concentrations compared to SEAS students (17.6%). Generally, upperclassmen have found more use/value from their advisors, proctors, department heads, faculty members, and advising programs. 72.2% of freshmen get their primary concentration-related help from their first-year academic advisors, the most out of all four years.", style = {'font-size': '14pt'})
 ])
 
 
@@ -324,7 +324,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
                 textinfo='none',
                 hoverinfo='label+percent',
                 marker={'colors': ['rgb(71,159,118)','rgb(233,236,239)']},
-                showlegend = False),
+                showlegend = True),
                 row=rowNum, col=colNum)
 
             colNum += 1

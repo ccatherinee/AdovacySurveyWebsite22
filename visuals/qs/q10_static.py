@@ -157,8 +157,9 @@ app.layout = html.Div([
         ],style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
     
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P('Our survey result shows that people who identified as URM are much less likely to approach faculty for an academic letter of recommendation (20% responded yes) than those who identified as Non-URM (50.6% responded yes).', style = {'font-size': '14pt'}), 
-    html.P('In general, first-year and sophomore students are less likely to approach faculty to inquire about career opportunities (53.8% of first-year students responded “yes” & 53.5% of sophomores responded “yes”) than junior and senior students (65.5% of juniors responded “yes” & 83.3% seniors responded “yes”).', style = {'font-size': '14pt'})
+    html.P('Our survey result shows that people who identified as URM are much less likely to approach faculty for an academic letter of recommendation (20.0% responded yes) than those who identified as non-URM (50.6% responded yes). This result is consistent across the other prompted questions as well — “to inquire about research opportunities”, and “to inquire about advice for my concentration.”', style = {'font-size': '14pt'}), 
+    html.P('In general, first-year and sophomore students are less likely to approach faculty to inquire about career opportunities (53.8% of first-year students responded “yes” & 53.5% of sophomores responded “yes”) than junior and senior students (65.5% of juniors responded “yes” & 83.3% seniors responded “yes”).', style = {'font-size': '14pt'}), 
+    html.P("Compared to last year’s results, the percentage for non-males to inquire about career opportunities has decreased. Additionally, the percentage for URM to inquire about career opportunities, an academic letter recommendation, and research opportunities has decreased.", style={'font-size': '14pt'})
 
 ])
 
@@ -331,7 +332,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
                 direction = 'clockwise',
                 sort = False,
                 marker={'colors': ['rgb(71,159,118)', 'rgb(233,236,239)']},
-                showlegend=False
+                showlegend=True
                 ), row=rowNum, col=colNum)
 
             colNum += 1
@@ -341,7 +342,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
     #    title='I would feel comfortable approaching at least one faculty member from within my primary concentration department...'
     #)
     
-    fig.update_layout(autosize=True)
+    fig.update_layout(autosize=True, showlegend=True)
     
     # check for errors
     if fig == None or is_sample_size_insufficient(dff, axis):

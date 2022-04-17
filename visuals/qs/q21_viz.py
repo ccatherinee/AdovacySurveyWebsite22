@@ -289,12 +289,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg = (row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[str(col+1)]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[str(col+1)],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -319,7 +322,8 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
         paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
         margin=dict(l=0, r=0, t=140, b=80),
-        showlegend=False
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []

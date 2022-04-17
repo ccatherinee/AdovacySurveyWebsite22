@@ -151,8 +151,7 @@ app.layout = html.Div([
     #],style={'height':50, 'margin-left':50}),
     
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("25% of surveyed FGLI students felt as if they did not have the resources to successfully apply to graduate school, while only 10.9% of surveyed non-FGLI students felt the same. However, only 16.7% of FGLI students felt that graduate school didn’t fit their career paths, while 20.7% of non-FGLI shared that same sentiment.", style = {'font-size': '14pt'}), 
-    html.P("When considering graduate school, SEAS students (14.3%) were more likely to feel as if they did not have sufficient resources to apply compared to non-SEAS students (0%). Similarly, a larger percent of non-BGLTQ+ students (27.3%) students felt that graduate school didn’t fit into their career paths, while only 8.57% of BGLTQ+ students felt the same.", style = {'font-size': '14pt'})
+    html.P("When considering graduate school, SEAS students (14.3%) were significantly more likely to feel as if they did not have sufficient resources to apply compared to non-SEAS students (0.0%). Similarly, a larger percent of non-BGLTQ+ students (27.3%) students felt that graduate school didn’t fit into their career paths, while only 8.6% of BGLTQ+ students felt the same. 25.0% of surveyed FGLI students felt as if they did not have the resources to successfully apply to graduate school, while only 10.9% of surveyed non-FGLI students felt the same.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -294,7 +293,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             values=y_n_values,
             textinfo='none',
             hoverinfo='label+percent', marker={'colors': ['rgb(71,159,118)','rgb(233,236,239)']},
-            showlegend=False
+            showlegend=True
         ), row=1, col=colNum)
     
         colNum +=1

@@ -294,7 +294,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             direction = 'clockwise',
             sort = False,
             marker={'colors': ['rgb(71,159,118)', 'rgb(233,236,239)']},
-            showlegend=False
+            showlegend=True
         ), row=1, col=colNum)
         colNum +=1
     fig.update_layout(

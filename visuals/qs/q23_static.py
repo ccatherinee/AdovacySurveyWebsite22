@@ -153,9 +153,7 @@ app.layout = html.Div([
         html.P("Please indicate the extent to which you disagree or agree with each of the following statements: I have noticed discrimination within my primary concentration on the basis of (1 - strongly disagree, 4 - neither agree nor disagree, 7 - srongly agree) - My gender")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, around 90% of suveyed male students strongly disagreed, disagreed, or somewhat disagreed while only 50% of surveyed non-male students strongly disagreed, disagreed, or somewhat disagreed. Around 10% of surveyed male students strongly agreed, agreed, or somewhat agreed while around 36% of surveyed non-male students strongly agreed, agreed, or somewhat agreed.", style = {'font-size': '14pt'}), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of social class, around 25% of surveyed FGLI students strongly agreed or agreed while only around 7% of non-FGLI students strongly agreed or agreed.", style = {'font-size': '14pt'}), 
-    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, 51% of first years strongly disagreed, 43.33% of sophomores strongly disagreed, 34.48% of juniors strongly disagreed, 25.0% of seniors strongly disagreed.", style = {'font-size': '14pt'})
+    html.P("When asked if they had noticed discrimination within their primary concentration on the basis of gender, there was a significant difference between the proportion of surveyed male students who agreed to some degree (9.5%) versus non-male students (37.0%). When asked if they had noticed discrimination within their primary concentration on the basis of social class, around 25.0% of surveyed FGLI students agreed to some extent while only around 6.7% of non-FGLI students did.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -301,12 +299,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg=(row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[0],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -332,8 +333,9 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
         barmode='stack',
         #paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True,
+        legend = dict(orientation='h')
     )
 
     annotations = []

@@ -179,8 +179,7 @@ html.Div([
 
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
     html.P("Our survey results show that among those who have taken or are taking CS50, more than two-thirds of them are non-male.", style = {'font-size': '14pt'}), 
-    html.P("Among those who have taken or are taking CS 2xx classes, only 6% of them are URM.", style = {'font-size': '14pt'}), 
-    html.P("Among those who have taken or are taking CS 2xx classes, none of them identified as FGLI students and only 7% of the respondents who have taken or are taking CS 1xx classes identified as FGLI students.", style = {'font-size': '14pt'})
+    html.P("Our survey result shows that among those who have taken or are taking CS50, 79.0% of them are non-male. Among those who have taken or are taking CS 2xx classes, only 6.0% of them are URM, and none identified as FGLI students. Only 7.0% of the respondents who have taken or are taking CS 1xx classes identified as FGLI students.", style = {'font-size': '14pt'})
 ])
 
 # checks if the sample size is sufficient to be displayed

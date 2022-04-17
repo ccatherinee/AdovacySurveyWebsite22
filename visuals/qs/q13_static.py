@@ -132,7 +132,7 @@ app.layout = html.Div([
         html.P("Please indicate the extent to which you disagree or agree with the following statement: I can easily find problem set partners within a CS course.")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':80, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Non-URM students were significantly more likely to answer with some degree of “agree” (i.e. in the blue) (67.8%) compared to URM students (20%). Additionally, a lot more FGLI students indicated some level of disagreement (66%) compared to non-FGLI students (25%). Finally, there was a general skew towards disagreement for BGLTQ+ students compared to their non-BGLTQ+ counterparts. Last year’s report stated race as the most significant finding, followed by FGLI and BGLTQ+; we see similar results for this year.", style = {'font-size': '14pt'})
+    html.P("Non-URM students were significantly more likely to answer with some degree of “agree” (i.e. in the blue) (67.8%) compared to URM students (20.0%). Additionally, a lot more FGLI students indicated some level of disagreement (66.7%) compared to non-FGLI students (23.8%). Finally, there was a general skew towards disagreement for BGLTQ+ students compared to their non-BGLTQ+ counterparts. Last year’s report stated race as the most significant finding, followed by FGLI and BGLTQ+; we see similar results for this year.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -273,12 +273,15 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg = (row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -304,8 +307,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         barmode='stack',
         paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=40, b=80),
-        showlegend=False
+        margin=dict(l=0, r=0, t=40, b=120),
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []

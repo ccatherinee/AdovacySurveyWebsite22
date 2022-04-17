@@ -134,8 +134,8 @@ app.layout = html.Div([
     dcc.Graph(id='visualization',
               config={'displayModeBar': False}),
               #style={'margin-top':'-40'}), 
-    html.P("34.78% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 0% of reported male students fall under that category. On the contrary, 83.33% of surveyed male students have been taught programming in middle school or earlier, while only 65.22% of non-male students fall under that category.", style = {'font-size': '14pt'}), 
-    html.P("In regards to programming background, 7.87% of SEAS respondents claim to have never been taught programming in an academic or extracurricular setting, while 15.56% of non-SEAS respondents agree with that statement. On the other hand, 62.86% of BGLTQ+ respondents have learned programming before college, while 80% of non-BGLTQ+ students have done the same.", style = {'font-size': '14pt'})
+    html.P("With regards to programming background, 62.9% of BGLTQ+ respondents have learned programming before college, while 80.0% of non-BGLTQ+ students have done the same. In addition, 34.8% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 0.0% of reported male students fall under that category. Furthermore, 83.3% of surveyed male students have been taught programming in middle school or earlier, compared to 65.2% of non-male students.", style = {'font-size': '14pt'}), 
+    html.P("Compared to the results from last year, a lower proportion of students overall reported taking a programming course in middle school or earlier. However, both years’ survey results encapsulate the fact that male students tend to learn programming earlier than their non-male counterparts.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -277,12 +277,15 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg=(row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                name=legend_labels[col],
+                showlegend=leg,
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -308,8 +311,9 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         barmode='stack',
         #paper_bgcolor='rgb(248, 248, 255)',
         #plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=20, b=80),
-        showlegend=False
+        margin=dict(l=0, r=0, t=20, b=150),
+        showlegend=True,
+        legend = dict(orientation='h')
     )
 
     annotations = []

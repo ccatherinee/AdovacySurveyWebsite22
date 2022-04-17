@@ -154,10 +154,9 @@ app.layout = html.Div([
         html.P("Please indicate the extent to which you disagree or agree with each of the following statements: the aspects of my identity that are important to me, such as gender, ethnicity, or sexuality, are adequately represented among ... (1 - strongly disagree, 4 - neither agree nor disagree, 7 - strongly agree) - the students in my primary concentration department")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':180, 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("A larger percentage (38.27%) of non-male respondents disagree with the statement that “the aspects of my identity that are important to me … are adequately represented among the teaching staff for courses in my primary concentration department” than male respondents (9.52%).", style = {'font-size': '14pt'}),
-    html.P("There is a significant difference between non-male respondents (67.91% disagree) and male respondents (14.28% disagree) on the statement “the aspects of my identity that are important to me … are adequately represented among the professors in my primary concentration department”.", style = {'font-size': '14pt'}),
-    html.P("50% of URM respondents express certain levels of disagreement with the statement that “the aspects of my identity that are important to me … are adequately represented among the students in my primary concentration department” while only around 21.42% Non-URM respondents express disagreement with the statement.", style = {'font-size': '14pt'}), 
-    html.P("")
+    html.P("A significantly larger proportion (38.3%) of non-male respondents disagree to some extent that the aspects of their identity that are important to them are adequately represented among the teaching staff in their primary concentration department than male respondents (9.5%). There is a significant difference between the number of non-male respondents (67.9% disagree) and male respondents (14.3% disagree to some extent) who feel as if the aspects of their identity that are important to them are adequately represented among the professors in their primary concentration department.", style = {'font-size': '14pt'}),
+    html.P("More URM respondents express some level of disagreement with feeling represented among the students in their primary concentration department (50.0%) compared with their non-URM counterparts (21.4%).", style = {'font-size': '14pt'}),
+    html.P("Compared to last year’s report, a smaller percentage of non-male students report feeling represented among the students in their primary concentration department. On the other hand, more FGLI students feel represented among the students in their primary concentration department, and more non-male students feel represented among the teaching staff in their primary concentration department.", style = {'font-size': '14pt'}), 
 ])
 
 
@@ -306,12 +305,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg = (row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -337,8 +339,9 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
         barmode='stack',
         # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True, 
+        legend = dict(orientation='h'),
     )
 
     annotations = []

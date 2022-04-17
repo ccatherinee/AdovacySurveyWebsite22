@@ -148,9 +148,8 @@ app.layout = html.Div([
         html.P("Please indicate the extent to which you disagree or agree with each of the following statements: The student community within my primary concentration is (1 - strongly disagree, 4 - neither agree nor disagree, 7 - strongly agree) - Emotionally supportive")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':150, 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("Around 58% of FGLI students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 25% of Non-FGLI students strongly disagreed, disagreed, or somewhat disagreed.", style = {'font-size': '14pt'}), 
-    html.P("Around 86% of male students strongly agreed, agreed, or somewhat agreed that the student community within their primary concentration is academically supportive compared to 68% of female students.", style = {'font-size': '14pt'}), 
-    html.P("Around 45% of BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed that the student community within their primary concentration is emotionally supportive while around 23% of Non-BGLTQ+ students strongly disagreed, disagreed, or somewhat disagreed.", style = {'font-size': '14pt'})
+    html.P("FGLI students were significantly more likely to disagree to some extent that their primary concentration community is emotionally supportive (58.3%) compared to their non-FGLI counterparts (25.6%). Similarly, a significantly higher percentage of BGLTQ+ disagreed to some extent with the fact that their primary concentration community is emotionally supportive (45.5%) compared to their non-BGLTQ+ counterparts (22.7%).", style = {'font-size': '14pt'}), 
+    html.P("Male students (85.7%) were more likely to agree to some extent that their primary concentration community is academically supportive compared to their non-male counterparts (69.1%).", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -295,12 +294,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg = (row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[str(col+1)]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[str(col+1)],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -326,8 +328,9 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
         barmode='stack',
         # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []

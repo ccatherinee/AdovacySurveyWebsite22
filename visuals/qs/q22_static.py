@@ -153,9 +153,7 @@ app.layout = html.Div([
         html.P("Please indicate the extent to which you disagree or agree with each of the following statements: I have experienced discrimination within my primary concentration on the basis of ... ( 1 - strongly disagree, 4 - neither agree nor disagree, 7 - strongly agree) - My gender")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of gender, 85.71% of surveyed male students either strongly disagree and 14.29% disagree while only 29.13% of surveyed non-male students strongly disagree and 18.52% disagree.", style = {'font-size': '14pt'}), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of sexuality, 63% of BGLTQ+ students strongly disagree while around 86% of non-BGLTQ+ students strongly disagree. Around 6% of surveyed BGLTQ+ students strongly agree or agree while no Non-BGLTQ+ student strongly agree or agree.", style = {'font-size': '14pt'}), 
-    html.P("When asked if they have experienced discrimination within their primary concentration on the basis of social class, 83.33% of Non-FGLI students strongly disagreed while 33.33% of FGLI students disagreed. Around 17% of FGLI students strongly agreed or agreed while no Non-FGLI students strongly agreed or agreed.", style = {'font-size': '14pt'})
+    html.P("Along all axes, we noticed that SEAS concentrators generally were more likely to have experienced discrimination comapred to non-SEAS concentrators. When asked if they have experienced discrimination within their primary concentration on the basis of gender, there was a significant difference between the proportion of surveyed male students who either strongly disagreed or disagreed (100.0%) compared to non-male students (47.7%). Similarly, when asked if they have experienced discrimination within their primary concentration on the basis of sexuality, 63.6% of BGLTQ+ students strongly disagreed while around 86.4% of non-BGLTQ+ students strongly disagreed. When asked if they have experienced discrimination within their primary concentration on the basis of social class, there was also a significant difference between the number of FGLI students (17.0%) who strongly agreed or agreed versus the number of non-FGLI students (0.0%). These results are similar to last year’s results.", style = {'font-size': '14pt'})
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -301,12 +299,15 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg=(row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -332,8 +333,9 @@ def update_graph(axis, statement, gender_filter, race_ethnicity_filter, bgltq_fi
         barmode='stack',
         # _bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []

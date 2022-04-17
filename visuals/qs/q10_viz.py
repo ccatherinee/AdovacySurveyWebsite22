@@ -353,7 +353,8 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
             family="Courier New, monospace",
             size=15,
             color="RebeccaPurple"
-        )
+        ), 
+        showlegend=True
     )
     return figSub
 

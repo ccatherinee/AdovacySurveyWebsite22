@@ -17,6 +17,7 @@ from datetime import datetime
 app = DjangoDash('q7_static', external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
 
 legend_labels = ['1', '2', '3', '4', '5', '6', '7']
+legend_labels_2 = ['Strongly disagree', 'Disagree', 'Somewhat disagree', 'Neither agree nor disagree', 'Somewhat agree', 'Agree', 'Strongly agree']
 bar_colors = ['rgba(102, 0, 0, 0.8)', 'rgba(204, 0, 0, 0.8)', 'rgba(234, 153, 153, 0.8)', 'rgba(217, 217, 217, 0.8)', 'rgba(164, 194, 244, 0.8)', 'rgba(60, 120, 216, 0.8)', 'rgba(28, 69, 135, 0.8)']
 #QUESTION_ID = 'Q7_1'
 
@@ -152,7 +153,8 @@ app.layout = html.Div([
         html.P("How do you think your level of comfort in the following topics compare to other CS concentrators in your year? (1 - significantly less knowledgeable, 4 - around average, 7 - significantly more knowledgeable) - Programming languages")
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
-    html.P("66.66% of surveyed FGLI students label themselves as “less knowledgeable than their peers” regarding programming languages (1 - 3 on the scale), with 33.3% 1’s and 33.3% 2’s. 47.07% of surveyed non-FGLI students label themselves that way, with 15.69% 1’s, 2’s, and 3’s. In theoretical computer science, 100% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to non-FGLI students.", style = {'font-size': '14pt'})
+    html.P("66.7% of surveyed FGLI students label themselves as less knowledgeable than their peers with regards to programming languages (1 - 3 on the scale) compared to 47.1% of surveyed non-FGLI students. In theoretical computer science, 100.0% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to their non-FGLI counterparts.", style = {'font-size': '14pt'}),
+    html.P("The 2021 and 2020 data for FGLI vs. non-FGLI students follow the general trend that FGLI students are overall less comfortable in all CS topics than non-FGLI students. However, it’s interesting to see that the 2020 distributions of comfort are much closer than the 2021 results.", style= {'font-size': '14pt'}),
 ])
 
 def is_sample_size_insufficient(dff, axis):
@@ -298,12 +300,15 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
 
     for row in range(len(x_data)):
         for col in range(len(x_data[0])):
+            leg=(row==0)
             hovertext = str(x_data[row][col]) + '% - ' + legend_labels[col]
             fig.add_trace(go.Bar(
                 x=[x_data[row][col]], y=[row],
                 orientation='h',
                 hoverinfo='text',
                 hovertext=hovertext,
+                showlegend=leg,
+                name=legend_labels_2[col],
                 marker=dict(
                     color=bar_colors[col],
                     line=dict(color='rgb(248, 248, 249)', width=1)
@@ -329,8 +334,9 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
         barmode='stack',
         # paper_bgcolor='rgb(248, 248, 255)',
         plot_bgcolor='rgb(248, 248, 255)',
-        margin=dict(l=0, r=0, t=0, b=40),
-        showlegend=False
+        margin=dict(l=0, r=0, t=0, b=100),
+        showlegend=True, 
+        legend = dict(orientation='h')
     )
 
     annotations = []
