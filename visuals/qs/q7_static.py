@@ -154,7 +154,7 @@ app.layout = html.Div([
     ], style={'font-family':'Arial', 'color':'rgb(42, 63, 95)','font-size':'14pt','height':'auto', 'margin-left':50}),
     dcc.Graph(id='visualization', config={'displayModeBar':False}), 
     html.P("66.7% of surveyed FGLI students label themselves as less knowledgeable than their peers with regards to programming languages (1 - 3 on the scale) compared to 47.1% of surveyed non-FGLI students. In theoretical computer science, 100.0% of surveyed FGLI students claim they are less knowledgeable than their peers (1 - 3 on the scale). Overall, FGLI students label themselves as less knowledgeable than their peers compared to their non-FGLI counterparts.", style = {'font-size': '14pt'}),
-    html.P("The 2021 and 2020 data for FGLI vs. non-FGLI students follow the general trend that FGLI students are overall less comfortable in all CS topics than non-FGLI students. However, it’s interesting to see that the 2020 distributions of comfort are much closer than the 2021 results.", style= {'font-size': '14pt'}),
+    html.P("This year’s data aligns with last year’s data in that FGLI students are overall less comfortable in all CS topics than non-FGLI students.", style= {'font-size': '14pt'}),
 ])
 
 def is_sample_size_insufficient(dff, axis):
