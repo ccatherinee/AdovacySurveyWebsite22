@@ -3,10 +3,213 @@
 <html>
   <head>
     <title>Academics</title>
-    <link rel="stylesheet" type="text/css" href="/visuals/static/style.css">
+	<style>
+		html * {
+font-family: Arial;
+font-size: 14pt;
+}
+body {
+background:#DAE0E6;
+overflow-y:scroll;
+}
+
+.box {
+border-radius: 15px;
+position: relative;
+background-color: white; 
+width: 100%;
+height: auto;
+border: 1px rgb(137, 137, 137);
+/* border-left: 40px rgba(250,250,250,0.8); */
+border-left: 40px rgba(200, 200, 200, 0.8);
+border-style: solid;
+margin-left: 4%;
+margin-top: 4%;
+overflow: hidden;
+padding: 1%;
+}
+
+.topics {
+border-radius: 15px;
+position: fixed;
+background-color: white; 
+width: 20%;
+height: 320px;
+border: 1px rgb(137, 137, 137);
+/* border-top: 40px #a291b5; */
+border-top: 40px rgb(227, 96, 85);
+border-style: solid;
+margin-left: -8.5%;
+margin-top: 4%;
+}
+
+
+.description {
+border-radius: 15px;
+position: fixed;
+top: 450px;
+background-color: white; 
+width: 20%;
+height: auto;
+border: 1px rgb(137, 137, 137);
+/* border-top: 40px #a291b5;*/
+border-top: 40px rgb(227, 96, 85);
+border-style: solid;
+margin-left: -8.5%;
+margin-top: 4%;
+}
+
+.rightcontainer {
+width: 20%;
+float: right; 
+position: relative;
+margin-right: -6%;
+}
+
+.visual{
+width:100%;
+height:80%;
+overflow:hidden;
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
+a.explore{
+text-decoration:none; 
+font-size:18px; 
+/* background-color:#a291b5; */
+background-color: rgb(227, 96, 85);
+color: white;
+padding:10px; 
+border-radius:10px;
+font-family: Arial
+}
+
+.leftcontainer {
+width:65vw;
+float:left;
+}
+
+@media screen and (max-width:500px), screen and (max-height:500px) {
+    .explore { display: none !important; }
+    .rightcontainer { margin: 0 auto; width: 100%; display: inline-block}
+    .leftcontainer {width:100%; display: inline-block }
+    .topics {position: relative; width: 100%;  margin-top: 10%; margin-left:0}
+    .description {position: relative; width: 100%; margin-top: -100%; margin-left:0;} 
+    .box {
+        margin-left:0;
+        width: 100%;
+        border-left: 0px;
+
+        }
+}
+
+@media screen and (min-width: 500px) and (max-width:800px), screen and (max-height:500px) {
+    .explore { display: none !important; }
+    .rightcontainer { margin: 0 auto; width: 100%; display: inline-block}
+    .leftcontainer {width:100%; display: inline-block }
+    .topics {position: relative; width: 100%;  margin-top: 10%; margin-left:0}
+    .description {position: relative; width: 100%; margin-top: -50%; margin-left:0;} 
+    .box {
+        margin-left:0;
+        width: 100%;
+        border-left: 0px;
+        }
+}
+
+
+fade {
+position: absolute;
+bottom:60px;
+display: block;
+width: 100%;
+height:50%;
+
+background-image: linear-gradient(to bottom,
+rgba(255, 255, 255, 0), 
+rgba(255, 255, 255, 1)
+100%);
+}
+
+.collapsed {height: 400px; overflow: hidden;}
+
+.expandbar {
+position:absolute;
+height:60px;
+width:100%;
+bottom:0px;
+margin-left:-2%;
+padding-right:1%;
+}
+
+.expandbar:hover {
+/* background: #d3eff2; */
+background: rgba(200, 200, 200, 0.8);
+}
+
+.navbar {
+position:relative;
+height:40px;
+line-height:40px;
+vertical-align:middle;
+width:100%;
+}
+
+.navbar:hover {
+background: #d3eff2;
+}
+
+a.nav {
+display:block;
+height:100%;
+width:100%;
+text-decoration:none;
+color: black;
+font-family: Arial
+}
+
+.report-page-title {
+    text-align: center;
+    padding: 0px;
+    font-size: 25px;
+}
+
+.report-text {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 42rem;
+    line-height: 1.45;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+}
+
+.report-header {
+    text-align: center;
+    margin-top: 20px;
+}
+	</style>
+    <!--<link rel="stylesheet" type="text/css" href="/visuals/static/style.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="visuals/static/collapse.js"></script>    
+    <script>$(document).ready(function(){
+		$('.expandbar').click(function(){
+			let box = $(this).closest('.box');
+			if ( box.hasClass('collapsed') ){
+				box.removeClass('collapsed');
+				box.find("fade").remove();
+				box.find(".expandbar").html("<span style='font-size:30px;'>&#x2303</span>")
+			} else{
+				box.addClass('collapsed');
+				box.append("<fade/>");
+				box.find(".expandbar").html("<span style='font-size:30px;'>&#x2304</span>")
+			}
+		});
+	});</script>    
   </head>
   <body>
     <div class="leftcontainer">
