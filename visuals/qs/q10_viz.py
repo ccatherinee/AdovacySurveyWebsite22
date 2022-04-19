@@ -5,7 +5,8 @@ import constants as C
 import dataframe_init as D
 
 import dash
-from dash import dcc, html
+import dash_core_components as dcc
+import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import plotly.express as px
 import plotly.graph_objects as go
