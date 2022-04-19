@@ -1,1 +1,1 @@
-web: gunicorn web22.wsgi --log-file
+web: python manage.py runserver
