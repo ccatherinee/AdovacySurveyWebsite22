@@ -179,7 +179,7 @@ html.Div([
 
     dcc.Graph(id='visualization',config={'displayModeBar':False}), 
     html.P("Our survey result shows that among those who have taken or are taking CS50, 79.0% of them are non-male. Among those who have taken or are taking CS 2xx classes, only 6.0% of them are URM, and none identified as FGLI students. Only 7.0% of the respondents who have taken or are taking CS 1xx classes identified as FGLI students.", style = {'font-size': '14pt'})
-])
+],)
 
 # checks if the sample size is sufficient to be displayed
 def is_sample_size_insufficient(dff, axis):
@@ -389,7 +389,7 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
     fig.update_traces(hovertemplate=None, hoverinfo='skip')
     fig.update_xaxes(visible=False)
     fig.update_yaxes(visible=False)
-    fig.update_layout(width=500, height=500, legend_title='', margin = dict(t=130))
+    fig.update_layout(width=650, height=650, legend_title='', margin = dict(t=130))
     fig.update_layout(legend=dict(
         orientation="h",
         itemsizing = 'constant',
@@ -413,6 +413,8 @@ def update_graph(axis, course, gender_filter, race_ethnicity_filter, bgltq_filte
             'x':0.5,
             'xanchor': 'center',
             'yanchor': 'top'})
+
+    fig.update_layout(autosize=True, showlegend=True)
 
     # return empty plot if there is not enough data (or if figure is not yet implemented)
     if fig == None or is_sample_size_insufficient(dff, axis):

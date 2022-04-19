@@ -307,7 +307,7 @@ def update_graph(axis, gender_filter, race_ethnicity_filter, bgltq_filter, fgli_
         # add row title
         figSub.add_trace(go.Table(
             header=dict(values=[label], fill_color='rgba(0,0,0,0)', font=dict(
-                color='RebeccaPurple', size=16), align='center'),
+                color='rgb(33,37,41)', size=16), align='center'),
             cells=dict(values=[' '],
                        fill_color='rgba(0,0,0,0)',
                        align='center')
