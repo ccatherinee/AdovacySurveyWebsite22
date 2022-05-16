@@ -135,7 +135,7 @@ app.layout = html.Div([
     dcc.Graph(id='visualization',
               config={'displayModeBar': False}),
               #style={'margin-top':'-40'}), 
-    html.P("With regards to programming background, 62.9% of BGLTQ+ respondents have learned programming before college, while 80.0% of non-BGLTQ+ students have done the same. In addition, 34.8% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 0.0% of reported male students fall under that category. Furthermore, 83.3% of surveyed male students have been taught programming in middle school or earlier, compared to 65.2% of non-male students.", style = {'font-size': '14pt'}), 
+    html.P("With regards to programming background, 62.9% of BGLTQ+ respondents have learned programming before college, while 80.0% of non-BGLTQ+ students have done the same. In addition, 28.8% of non-male students surveyed claim that they have never been taught programming before coming to Harvard, while 15.0% of reported male students fall under that category. Furthermore, 25.0% of surveyed male students have been taught programming in middle school or earlier, compared to 18.5% of non-male students.", style = {'font-size': '14pt'}), 
     html.P("Compared to the results from last year, a lower proportion of students overall reported taking a programming course in middle school or earlier. However, both years’ survey results encapsulate the fact that male students tend to learn programming earlier than their non-male counterparts.", style = {'font-size': '14pt'})
 ])
 
